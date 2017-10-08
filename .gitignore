@@ -2,6 +2,6 @@
 /typings
 /node_modules
 *.js
-.env
 npm-debug.log
 .idea/*
+/ngApp/env/env.*

@@ -1,4 +1,5 @@
 namespace restoration {
+
     angular.module('restoration', ['ui.router', 'ngResource', 'ui.bootstrap', 'ui.router.title', 'ngMap', 'ckeditor']).config((
         $stateProvider: ng.ui.IStateProvider,
         $urlRouterProvider: ng.ui.IUrlRouterProvider,
@@ -12,9 +13,6 @@ namespace restoration {
                 controllerAs: 'vm',
                 resolve: {
                     $title: function() { return 'home | restoration bodywork and massage therapy | phoenix, az'; }
-                },
-                data: {
-                    description: 'test'
                 }
             })
             .state('about', {

@@ -31,12 +31,6 @@ namespace restoration.Services {
             return q.promise;
         }
 
-        // upload() {
-        //     return this.$http.post('/api/v1/upload').then(res => {
-        //         console.log(res);
-        //     })
-        // }
-
         public setToken(token) {
             this.$window.localStorage.setItem('token', token);
         }
@@ -139,7 +133,7 @@ namespace restoration.Services {
         constructor(private $http: ng.IHttpService, private $window: ng.IWindowService, private $q: ng.IQService, private $state, public $document) {
         }
 
-        public displayError(errors) {
+        public displayErrors(errors) {
             let body = this.$document.find('body').eq(0);
             let keys = Object.keys(errors);
             keys.forEach(key => {
@@ -158,7 +152,7 @@ namespace restoration.Services {
                     this.$state.go('dashboard');
                 })
                 .catch(res => {
-                    this.displayError(res.data.errors);
+                    this.displayErrors(res.data.errors);
                 });
             return q.promise;
         }
@@ -168,7 +162,7 @@ namespace restoration.Services {
                 .then(res => {
                     return res.data
                 }).catch(res => {
-                    this.displayError(res.data.errors);
+                    this.displayErrors(res.data.errors);
                 });
         }
 
@@ -177,7 +171,7 @@ namespace restoration.Services {
                 .then(res => {
                     return res.data
                 }).catch(res => {
-                    this.displayError(res.data.errors);
+                    this.displayErrors(res.data.errors);
                 });
         }
 
@@ -186,7 +180,7 @@ namespace restoration.Services {
                 .then(res => {
                     return res.data
                 }).catch(res => {
-                    this.displayError(res.data.errors);
+                    this.displayErrors(res.data.errors);
                 });
         }
 
@@ -197,7 +191,7 @@ namespace restoration.Services {
                     this.$state.go('dashboard');
                 })
                 .catch(res => {
-                    this.displayError(res.data.errors);
+                    this.displayErrors(res.data.errors);
                 });
             return q.promise;
         }
@@ -209,7 +203,7 @@ namespace restoration.Services {
                     this.$state.reload();
                 })
                 .catch(res => {
-                    this.displayError(res.data.errors);
+                    this.displayErrors(res.data.errors);
                 });
             return q.promise;
         }

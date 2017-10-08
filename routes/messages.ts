@@ -20,7 +20,7 @@ router.post('/', (req, res) => {
         secure: true, // secure:true for port 465, secure:false for port 587
         auth: {
             user: 'rbwmtaz@gmail.com',
-            pass: 'sober521'
+            pass: ''
         }
     });
 
