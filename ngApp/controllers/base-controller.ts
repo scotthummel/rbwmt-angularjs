@@ -1,5 +1,7 @@
 namespace restoration.Controllers {
     export class BaseController {
+        public year = new Date().getFullYear();
+
         public isLoggedIn = false;
         constructor(public AuthService: restoration.Services.AuthService, public $document) {
             let token = this.AuthService.getToken();
