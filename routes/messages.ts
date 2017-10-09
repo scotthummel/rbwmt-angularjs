@@ -1,6 +1,7 @@
 import * as express from 'express';
-import passport = require('passport');
 import Message from '../api/models/message';
+import env from '../ngApp/env/env';
+
 
 const nodemailer = require('nodemailer');
 
@@ -15,12 +16,12 @@ router.post('/', (req, res) => {
 
     // create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
-        host: 'smtp.gmail.com',
-        port: 465,
+        host: env.mailhost,
+        port: env.port,
         secure: true, // secure:true for port 465, secure:false for port 587
         auth: {
-            user: 'rbwmtaz@gmail.com',
-            pass: ''
+            user: env.username,
+            pass: env.password
         }
     });
 
@@ -29,8 +30,8 @@ router.post('/', (req, res) => {
 
     // setup email data with unicode symbols
     let mailOptions = {
-        from: '"Restoration Bodywork and Massage Therapy" <rbwmt@gmail.com>', // sender address
-        to: 'scotthummel@icloud.com', // list of receivers
+        from: '"Restoration Bodywork and Massage Therapy" ' + env.address, // sender address
+        to: env.to, // list of receivers
         subject: 'Message from the Website', // Subject line
         text: text, // plain text body
         html: html // html body

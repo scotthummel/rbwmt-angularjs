@@ -1,7 +1,6 @@
 /bower_components
 /typings
 /node_modules
-*.js
 npm-debug.log
 .idea/*
 /ngApp/env/env.*
